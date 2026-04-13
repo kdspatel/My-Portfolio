@@ -44,13 +44,13 @@ export default function Projects() {
     () => [
       {
         title: "Aquila",
-        link: "https://gsap-drinks-self.vercel.app/",
+        link: "https://aquila-mocktails.vercel.app/",
         bgColor: "#008236",
         image: isMobile ? photo1 : img1,
       },
       {
         title: "KJ Beauty",
-        link: "https://kj-frontend-psi.vercel.app/",
+        link: "https://kjbeauty.vercel.app/",
         bgColor: "#fecdd3",
         image: isMobile ? photo2 : img2,
       },
