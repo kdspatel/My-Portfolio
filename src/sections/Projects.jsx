@@ -55,9 +55,9 @@ export default function Projects() {
         image: isMobile ? photo2 : img2,
       },
       {
-        title: "Letzplayy",
-        link: "https://letzplayy-website.vercel.app/",
-        bgColor: "#fdc700",
+        title: "B.Studio",
+        link: "https://bhumin-joshi.vercel.app/",
+        bgColor: "#C4A484",
         image: isMobile ? photo3 : img3,
       },
     ],
