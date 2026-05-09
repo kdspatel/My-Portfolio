@@ -177,11 +177,11 @@ export default function Contact() {
                 <option value="" disabled>
                   Something In Mind ?
                 </option>
-                <option value="Web Development" className="text-black">
-                  Web Development
-                </option>
                 <option value="Front-End Development" className="text-black">
                   Front-End Development
+                </option>
+                <option value="Full-Stack Development" className="text-black">
+                  Full-Stack Development
                 </option>
                 <option value="other" className="text-black">
                   Others
