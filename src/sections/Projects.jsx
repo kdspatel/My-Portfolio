@@ -2,9 +2,18 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import photo1 from "../assets/photo1.png";
 import photo2 from "../assets/photo2.png";
 import photo3 from "../assets/photo3.png";
+
+import photo4 from "../assets/photo4.png";
+import photo5 from "../assets/photo5.png";
+import photo6 from "../assets/photo6.png";
+
 import img1 from "../assets/img1.png";
 import img2 from "../assets/img2.png";
 import img3 from "../assets/img3.png";
+
+import img4 from "../assets/img4.png";
+import img5 from "../assets/img5.png";
+import img6 from "../assets/img6.png";
 
 import {
   motion,
@@ -43,22 +52,40 @@ export default function Projects() {
   const projects = useMemo(
     () => [
       {
+        title: "BTS Merch",
+        link: "https://bts-merch.vercel.app/",
+        bgColor: "#9370DB",
+        image: isMobile ? photo1 : img1,
+      },
+      {
+        title: "Cafe",
+        link: "https://brew-theory-cafe.vercel.app/",
+        bgColor: "#C4A484",
+        image: isMobile ? photo2 : img2,
+      },
+      {
+        title: "Salon",
+        link: "https://elara-salon.vercel.app/",
+        bgColor: "#DCA1A1",
+        image: isMobile ? photo3 : img3,
+      },
+      {
         title: "Aquila",
         link: "https://aquila-mocktails.vercel.app/",
         bgColor: "#008236",
-        image: isMobile ? photo1 : img1,
+        image: isMobile ? photo4 : img4,
       },
       {
         title: "KJ Beauty",
         link: "https://kjbeauty.vercel.app/",
         bgColor: "#fecdd3",
-        image: isMobile ? photo2 : img2,
+        image: isMobile ? photo5 : img5,
       },
       {
         title: "Pixel Frames",
         link: "https://pixelframes.vercel.app/",
         bgColor: "#C4A484",
-        image: isMobile ? photo3 : img3,
+        image: isMobile ? photo6 : img6,
       },
     ],
     [isMobile]
