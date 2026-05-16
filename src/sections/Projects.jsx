@@ -1,19 +1,20 @@
 import { useEffect, useMemo, useRef, useState } from "react";
+
 import photo1 from "../assets/photo1.png";
 import photo2 from "../assets/photo2.png";
 import photo3 from "../assets/photo3.png";
-
 import photo4 from "../assets/photo4.png";
 import photo5 from "../assets/photo5.png";
 import photo6 from "../assets/photo6.png";
+import photo7 from "../assets/photo7.png";
 
 import img1 from "../assets/img1.png";
 import img2 from "../assets/img2.png";
 import img3 from "../assets/img3.png";
-
 import img4 from "../assets/img4.png";
 import img5 from "../assets/img5.png";
 import img6 from "../assets/img6.png";
+import img7 from "../assets/img7.png";
 
 import {
   motion,
@@ -23,21 +24,22 @@ import {
   easeOut,
 } from "framer-motion";
 
+/* ✅ FIXED MOBILE HOOK */
 const useIsMobile = (query = "(max-width: 639px)") => {
-  const [isMobile, setIsMobile] = useState(
-    typeof window !== "undefined" && window.matchMedia(query).matches
-  );
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     if (typeof window === "undefined") return;
 
     const mql = window.matchMedia(query);
 
-    const handler = (e) => {
-      setIsMobile(e.matches);
-      mql.addEventListener("change", handler);
-      setIsMobile(mql.matches);
-    }
+    const handler = (e) => setIsMobile(e.matches);
+
+    // initial value
+    setIsMobile(mql.matches);
+
+    // listener
+    mql.addEventListener("change", handler);
 
     return () => mql.removeEventListener("change", handler);
   }, [query]);
@@ -49,6 +51,7 @@ export default function Projects() {
   const isMobile = useIsMobile();
   const sceneRef = useRef(null);
 
+  /* ✅ Projects update properly when isMobile changes */
   const projects = useMemo(
     () => [
       {
@@ -70,22 +73,28 @@ export default function Projects() {
         image: isMobile ? photo3 : img3,
       },
       {
+        title: "Gym",
+        link: "https://auragym-website.vercel.app/",
+        bgColor: "#FFDAB9",
+        image: isMobile ? photo4 : img4,
+      },
+      {
         title: "Aquila",
         link: "https://aquila-mocktails.vercel.app/",
         bgColor: "#008236",
-        image: isMobile ? photo4 : img4,
+        image: isMobile ? photo5 : img5,
       },
       {
         title: "KJ Beauty",
         link: "https://kjbeauty.vercel.app/",
         bgColor: "#fecdd3",
-        image: isMobile ? photo5 : img5,
+        image: isMobile ? photo6 : img6,
       },
       {
         title: "Pixel Frames",
         link: "https://pixelframes.vercel.app/",
         bgColor: "#C4A484",
-        image: isMobile ? photo6 : img6,
+        image: isMobile ? photo7 : img7,
       },
     ],
     [isMobile]
@@ -121,7 +130,7 @@ export default function Projects() {
       <div className="sticky top-0 min-h-screen flex flex-col items-center justify-center px-4">
         
         {/* Title */}
-        <h2 className="text-4xl sm:text-5xl font-semibold text-center mt-8">
+        <h2 className="text-3xl sm:text-5xl font-semibold text-center mt-8">
           My Work
         </h2>
 
@@ -133,7 +142,7 @@ export default function Projects() {
               className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transition-all duration-500 ${
                 activeIndex === idx ? "opacity-100 z-20" : "opacity-0 z-0"
               }`}
-              style={{ width: "90%", maxWidth: "1100px" }}
+              style={{ width: "95%", maxWidth: "1100px" }}
             >
               <AnimatePresence mode="wait">
                 {activeIndex === idx && (
@@ -145,7 +154,7 @@ export default function Projects() {
                     transition={{ duration: 0.5, ease: easeOut }}
                     className={`italic font-semibold text-white/95 text-center ${
                       isMobile
-                        ? "text-3xl mb-4"
+                        ? "text-2xl mb-4"
                         : "absolute -top-16 left-0 text-[clamp(2rem,6vw,5rem)]"
                     }`}
                   >
@@ -157,7 +166,7 @@ export default function Projects() {
               {/* Image */}
               <div
                 className={`relative w-full overflow-hidden bg-black/20 shadow-2xl rounded-xl mt-[25px] ${
-                  isMobile ? "h-[45vh]" : "h-[70vh]"
+                  isMobile ? "h-[40vh]" : "h-[70vh]"
                 }`}
               >
                 <img
